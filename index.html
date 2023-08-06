@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/menu resposivo/assets/style.css">
+        <title>MENU 1° RESPONSIVO</title>
+    </head>
+    <body>
+        <!--Top Navibation Menu-->
+        <div class="topnav" id="myTopnav">
+            <a href="#home" class="active">Home</a>
+            <a href="#venda" id="#venda">Venda</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <main>
+            <section class="container">
+                <h1>Nome da empresa</h1>
+                <!--<a href="#" class="btn">Ver produtos</a>-->
+            </section>
+            <section class="casas_venda" id="venda">
+                <h1>Casas a Venda</h1>
+                <div class="slideshow-container">
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 4</div>
+                        <img src="/menu resposivo/assets/img/casa.jpg" alt="">
+                        <div class="text">Caption Text</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 4</div>
+                        <img src="/menu resposivo/assets/img/casa1.jpg" alt="">
+                        <div class="text">Caption Text</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 4</div>
+                        <img src="/menu resposivo/assets/img/casa2.jpg" alt="">
+                        <div class="text">Caption Text</div>
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="/menu resposivo/assets/img/casa3.jpg" alt="">
+                        <div class="text">Caption Text</div>
+                    </div>
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+                <br>
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                </div>
+            </section>
+            <footer>
+                <div>Copirity</div>
+            </footer>
+        </main>
+    </body>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+              x.className += " responsive";
+            } else {
+              x.className = "topnav";
+            }
+          }
+
+         let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            } 
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</html>
